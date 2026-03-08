@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كيفية تثبيت تقدية</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.7;padding:20px;}
+.container{max-width:700px;margin:0 auto;}
+h1{font-size:28px;color:#00c896;margin-bottom:6px;font-weight:800;}
+.sub{color:#8b949e;margin-bottom:32px;font-size:14px;}
+.card{background:#161b22;border:1px solid #2a3548;border-radius:16px;padding:22px;margin-bottom:20px;}
+.card-title{font-size:17px;font-weight:700;color:#e6edf3;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.badge{background:#00c896;color:#000;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:800;}
+.badge.free{background:#58a6ff;}
+.badge.easy{background:#e3b341;}
+ol{padding-inline-start:20px;}
+li{margin-bottom:10px;font-size:14px;color:#c9d1d9;}
+li strong{color:#e6edf3;}
+.note{background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.2);border-radius:10px;padding:12px 16px;font-size:13px;color:#00c896;margin-top:14px;}
+.warn{background:rgba(227,179,65,0.08);border:1px solid rgba(227,179,65,0.2);border-radius:10px;padding:12px 16px;font-size:13px;color:#e3b341;margin-top:10px;}
+.cmd{background:#0d1117;border:1px solid #2a3548;border-radius:8px;padding:10px 14px;font-family:monospace;font-size:13px;color:#00c896;margin:8px 0;}
+a{color:#58a6ff;}
+.step-num{width:28px;height:28px;background:#00c896;color:#000;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;}
+.files{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.file-item{background:#0d1117;border:1px solid #2a3548;border-radius:8px;padding:10px;font-size:12px;font-family:monospace;color:#8b949e;}
+.file-item span{display:block;color:#00c896;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🛒 تقدية – دليل التثبيت</h1>
+  <p class="sub">3 طرق لتشغيل التطبيق على هاتفك — اختر الأسهل</p>
+
+  <!-- METHOD 1: GitHub Pages -->
+  <div class="card">
+    <div class="card-title"><span class="step-num">1</span> GitHub Pages <span class="badge free">مجاني</span><span class="badge easy">الأسهل</span></div>
+    <ol>
+      <li>اذهب إلى <a href="https://github.com" target="_blank">github.com</a> وأنشئ حساباً مجانياً</li>
+      <li>انقر <strong>New repository</strong> → اسمه: <code>taqdiya</code> → فعّل <strong>Public</strong></li>
+      <li>ارفع الملفات الأربعة: <strong>index.html</strong>, <strong>manifest.json</strong>, <strong>sw.js</strong>, ومجلد <strong>icons/</strong></li>
+      <li>اذهب إلى <strong>Settings → Pages → Source: main branch / root</strong> → Save</li>
+      <li>رابطك سيكون: <code>https://اسمك.github.io/taqdiya</code></li>
+      <li>افتح الرابط على هاتفك في Safari (iOS) أو Chrome (Android)</li>
+      <li><strong>iOS:</strong> زر المشاركة ← "أضف إلى الشاشة الرئيسية"</li>
+      <li><strong>Android:</strong> النقاط الثلاث ← "تثبيت التطبيق" أو "أضف إلى الشاشة"</li>
+    </ol>
+    <div class="note">✓ التطبيق يعمل بدون إنترنت بعد أول تحميل | ✓ يحفظ بياناتك محلياً</div>
+  </div>
+
+  <!-- METHOD 2: Netlify Drop -->
+  <div class="card">
+    <div class="card-title"><span class="step-num">2</span> Netlify Drop <span class="badge free">مجاني</span></div>
+    <ol>
+      <li>اضغط على مجلد <strong>taqdiya-pwa</strong> وانسخه كاملاً</li>
+      <li>اذهب إلى <a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a></li>
+      <li>اسحب مجلد <strong>taqdiya-pwa</strong> وأفلته في الصفحة</li>
+      <li>في ثوانٍ ستحصل على رابط مثل: <code>https://random-name.netlify.app</code></li>
+      <li>افتحه على هاتفك وثبّته كـ PWA</li>
+    </ol>
+    <div class="note">✓ الأسرع — لا حاجة لحساب | ✓ يمكن ربطه بدومين خاص لاحقاً</div>
+  </div>
+
+  <!-- METHOD 3: Local WiFi -->
+  <div class="card">
+    <div class="card-title"><span class="step-num">3</span> تشغيل محلي عبر WiFi <span class="badge easy">بدون إنترنت</span></div>
+    <ol>
+      <li>تأكد أن الكمبيوتر والهاتف على نفس الشبكة WiFi</li>
+      <li>افتح <strong>Terminal / Command Prompt</strong> في مجلد taqdiya-pwa</li>
+      <li>شغّل أحد الأوامر حسب نظامك:</li>
+    </ol>
+    <div class="cmd">python3 -m http.server 8080</div>
+    <div class="cmd">npx serve . -p 8080</div>
+    <div class="cmd">php -S 0.0.0.0:8080</div>
+    <ol start="4">
+      <li>اعرف IP الكمبيوتر (ipconfig / ifconfig) مثلاً: <code>192.168.1.5</code></li>
+      <li>افتح على هاتفك: <code>http://192.168.1.5:8080</code></li>
+    </ol>
+    <div class="warn">⚠️ يعمل فقط عندما الكمبيوتر شغّال وعلى نفس الشبكة — للتجربة فقط</div>
+  </div>
+
+  <!-- Files included -->
+  <div class="card">
+    <div class="card-title">📦 الملفات المرفقة</div>
+    <div class="files">
+      <div class="file-item"><span>index.html</span>التطبيق الكامل</div>
+      <div class="file-item"><span>manifest.json</span>إعدادات PWA</div>
+      <div class="file-item"><span>sw.js</span>العمل بدون إنترنت</div>
+      <div class="file-item"><span>icons/</span>أيقونات التطبيق</div>
+    </div>
+    <div class="note" style="margin-top:14px;">كل البيانات (القوائم، الأسعار، الإعدادات) تُحفظ على هاتفك مباشرة — لا خادم، لا سحابة، خصوصية كاملة.</div>
+  </div>
+
+  <!-- Install on phone -->
+  <div class="card">
+    <div class="card-title">📱 تثبيت على الهاتف (بعد فتح الرابط)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+      <div>
+        <div style="color:#00c896;font-weight:700;margin-bottom:8px;font-size:13px;">🍎 iPhone / iPad</div>
+        <ol style="font-size:13px;">
+          <li>افتح الرابط في <strong>Safari</strong></li>
+          <li>اضغط زر <strong>المشاركة</strong> (□↑)</li>
+          <li>اختر <strong>"أضف إلى الشاشة الرئيسية"</strong></li>
+          <li>اضغط <strong>إضافة</strong></li>
+        </ol>
+      </div>
+      <div>
+        <div style="color:#58a6ff;font-weight:700;margin-bottom:8px;font-size:13px;">🤖 Android</div>
+        <ol style="font-size:13px;">
+          <li>افتح الرابط في <strong>Chrome</strong></li>
+          <li>اضغط النقاط الثلاث <strong>⋮</strong></li>
+          <li>اختر <strong>"تثبيت التطبيق"</strong></li>
+          <li>أو ستظهر نافذة تلقائية</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
